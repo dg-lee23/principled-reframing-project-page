@@ -179,297 +179,347 @@
 <!-- End paper abstract -->
 
 
-<!-- results: shift -->
+<!-- Results -->
 <section class="section">
   <div class="container">
-    <h2 class="title is-3">Results - shifting</h2>
-    <p class="subtitle is-5 has-text-grey">
-      We present results for object shifting. 
-      Results were obtained by using our <i>reframing</i> on top of three different motion transfer pipelines, our own (first row)
+
+    <!-- Overall title + description -->
+    <h1 class="title is-2 has-text-centered">Results with Reframing</h1>
+    <p class="subtitle is-5 has-text-grey has-text-centered" style="max-width: 800px; margin: 0 auto 3rem;">
+      We present results of using reframing for object shifting, camera zoom adjustments, and perspective shifts.
+      Results are obtained by using our reframing on top of three different motion transfer pipelines, our own (first row)
       <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a> (second row), and
       <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-x</a> (third row). 
+      <sup>*</sup> indicates a different direction, and <sup>†</sup> indicates a more significant change.
     </p>
 
-    <!-- Column captions -->
-    <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
-      <div class="column is-one-quarter">
-        <p class="has-text-weight-semibold">Reference</p>
-      </div>
-      <div class="column is-one-quarter">
-        <p class="has-text-weight-semibold">Default</p>
-      </div>
-      <div class="column is-one-quarter">
-        <p class="has-text-weight-semibold">Shift</p>
-      </div>
-      <div class="column is-one-quarter">
-        <p class="has-text-weight-semibold">Shift*</p>
-      </div>
-    </div>
+    <!-- results: shift -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Results - shifting</h2>
+        <p class="subtitle is-5 has-text-grey">
+          Results for shifting. The direction and magnitude of shifting can be freely controlled. 
+          Generally, better results are achieved when shifting in clear cardinal directions (up, down, left, or right) with magnitude of roughly one-third of the resolution.
+        </p>
 
-    <div class="columns is-multiline is-centered is-mobile">
-      
-      <!-- Row 1 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Ours/reference.gif" alt="demo1">
-        </figure>
-      </div>
+        <!-- Column captions -->
+        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Reference</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Default</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Shift</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Shift<sup>*</sup></p>
+          </div>
+        </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Ours/default.gif" alt="demo1">
-        </figure>
-      </div>
+        <div class="columns is-multiline is-centered is-mobile">
+          
+          <!-- Row 1 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Ours/reference.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Ours/shift right.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Ours/default.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Ours/shift up alternative.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Ours/shift right.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <!-- Row 2 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Opt. based/reference.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Ours/shift up alternative.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Opt. based/default.gif" alt="demo1">
-        </figure>
-      </div>
+          <!-- Row 2 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Opt. based/reference.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Opt. based/shift down.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Opt. based/default.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Opt. based/shift right.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Opt. based/shift down.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <!-- Row 3 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Inj. based/reference.gif" alt="demo1">
-        </figure>
-      </div>
-      
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Inj. based/default.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Opt. based/shift right.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Inj. based/right.gif" alt="demo1">
-        </figure>
-      </div>
+          <!-- Row 3 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Inj. based/reference.gif" alt="demo1">
+            </figure>
+          </div>
+          
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Inj. based/default.gif" alt="demo1">
+            </figure>
+          </div>
 
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/shift/Inj. based/left.gif" alt="demo1">
-        </figure>
-      </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Inj. based/right.gif" alt="demo1">
+            </figure>
+          </div>
 
-    </div>
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/shift/Inj. based/left.gif" alt="demo1">
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--  -->
+
+    <!-- results: zoom -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Results - zoom</h2>
+        <p class="subtitle is-5 has-text-grey">
+          Results for camera zoom adjustments. 
+          Both zooming in and out are supported, with controllable magnitudes (e.g., 2.0X for zoom-in, 0.5X for zoom-out).
+        </p>
+
+        <!-- Column captions -->
+        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Reference</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Default</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Zoom-in</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Zoom-out</p>
+          </div>
+        </div>
+        
+
+        <div class="columns is-multiline is-centered is-mobile">
+          
+          <!-- Row 1 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Ours/reference.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Ours/1.0.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Ours/2.0.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Ours/0.5.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Opt. based/reference.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Opt. based/default.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Opt. based/new_2.0X.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Opt. based/new_0.5X.gif" alt="demo1">
+            </figure>
+          </div>
+
+
+          <!-- Row 3 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Inj. based/dance_2.gif" alt="demo1">
+            </figure>
+          </div>
+          
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Inj. based/1.0X_maybe.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Inj. based/2.0X_maybe.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/zoom/Inj. based/0.5X_final.gif" alt="demo1">
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--  -->
+
+    <!-- results: warp -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Results - perspective shifts (warping) </h2>
+        <p class="subtitle is-5 has-text-grey">
+          Results for perspective shifts. 
+          As long as the camera remains static, its perspective can be shifted in the four cardinal directions, and the magnitude is controllable up to discrete steps.
+        </p>
+
+        <!-- Column captions -->
+        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Reference</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Default</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Perspective</p>
+          </div>
+          <div class="column is-one-quarter">
+            <p class="has-text-weight-semibold">Perspective<sup>†</sup></p>
+          </div>
+        </div>
+        
+
+        <div class="columns is-multiline is-centered is-mobile">
+          
+          <!-- Row 1 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Ours/reference.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Ours/default.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Ours/right_1.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Ours/right_2.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Opt. based/reference.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Opt. based/waterfall_default.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Opt. based/left.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Opt. based/left_2.gif" alt="demo1">
+            </figure>
+          </div>
+
+
+          <!-- Row 3 -->
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Inj. based/cat_stairs.gif" alt="demo1">
+            </figure>
+          </div>
+          
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Inj. based/cat_stairs_default.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Inj. based/cat_stairs_L.gif" alt="demo1">
+            </figure>
+          </div>
+
+          <div class="column is-one-quarter">
+            <figure class="image is-4by3">
+              <img src="static/videos/warp/Inj. based/cat_stairs_LL.gif" alt="demo1">
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--  -->
+
   </div>
 </section>
-<!--  -->
-
-<!-- results: zoom -->
-<section class="section">
-  <div class="container">
-    <h2 class="title is-3">Results - zoom</h2>
-    <p class="subtitle is-5 has-text-grey">
-      Results for camera zoom adjustments (both zooming in and out are possible, with its extent controllable).
-    </p>
-
-    <div class="columns is-multiline is-centered is-mobile">
-      
-      <!-- Row 1 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Ours/reference.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Ours/1.0.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Ours/2.0.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Ours/0.5.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Opt. based/reference.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Opt. based/default.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Opt. based/new_2.0X.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Opt. based/new_0.5X.gif" alt="demo1">
-        </figure>
-      </div>
-
-
-      <!-- Row 3 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Inj. based/dance_2.gif" alt="demo1">
-        </figure>
-      </div>
-      
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Inj. based/1.0X_maybe.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Inj. based/2.0X_maybe.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/zoom/Inj. based/0.5X_final.gif" alt="demo1">
-        </figure>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!--  -->
-
-<!-- results: warp -->
-<section class="section">
-  <div class="container">
-    <h2 class="title is-3">Results - perspective shifts (warping) </h2>
-    <p class="subtitle is-5 has-text-grey">
-      Results for perspective shifts (either left or right).
-    </p>
-
-    <div class="columns is-multiline is-centered is-mobile">
-      
-      <!-- Row 1 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Ours/reference.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Ours/default.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Ours/right_1.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Ours/right_2.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Opt. based/reference.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Opt. based/waterfall_default.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Opt. based/left.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Opt. based/left_2.gif" alt="demo1">
-        </figure>
-      </div>
-
-
-      <!-- Row 3 -->
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Inj. based/cat_stairs.gif" alt="demo1">
-        </figure>
-      </div>
-      
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Inj. based/cat_stairs_default.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Inj. based/cat_stairs_L.gif" alt="demo1">
-        </figure>
-      </div>
-
-      <div class="column is-one-quarter">
-        <figure class="image is-4by3">
-          <img src="static/videos/warp/Inj. based/cat_stairs_LL.gif" alt="demo1">
-        </figure>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!--  -->
-
 
 
 
