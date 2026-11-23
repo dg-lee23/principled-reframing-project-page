@@ -73,8 +73,8 @@
         <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Motion transfer copies how things move in a reference video, but it also copies the framing.
-        With <b>reframing</b>, you can change where the object is, how close the camera is, and the viewing angle.
+        Motion transfer methods replicate the motion of a <i>reference</i> video, but they also inherit its <i>framing</i>.
+        Our training-free <b>reframing</b> controls the object position, zoom, and perspective of the generated video.
       </h2>
     </div>
   </div>
@@ -111,10 +111,10 @@
     <h2 class="title is-3 has-text-centered">Reframing in Motion Transfer</h2>
     <div class="content has-text-justified">
       <p>
-        We add reframing to three motion transfer methods: MotionClone (ours),
-        <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a> and
+        We integrate reframing into three motion transfer methods: MotionClone (ours),
+        <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a>, and
         <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-X</a>.
-        Pick a type of reframing and a method below. <i>No reframing</i> is the normal motion transfer result.
+        Select a reframing type and a method below. <i>No reframing</i> denotes default motion transfer.
       </p>
     </div>
     <div class="viewer" id="main-viewer">
@@ -140,8 +140,8 @@
     <h2 class="title is-3 has-text-centered">More Reframing</h2>
     <div class="content has-text-justified">
       <p>
-        Reframing is not limited to shift and zoom. Here are more results with rotation,
-        perspective change, and several transforms used together.
+        Beyond shift and zoom, reframing also supports rotation, perspective change,
+        and combinations of multiple transformations.
       </p>
     </div>
     <div class="viewer" id="more-viewer">
@@ -167,10 +167,10 @@
     <h2 class="title is-3 has-text-centered">Combining with Camera Control</h2>
     <div class="content has-text-justified">
       <p>
-        Camera control models such as <a href="https://github.com/hehao13/CameraCtrl" target="_blank">CameraCtrl</a>
-        can move the camera, but they have a hard time with zoom. We tried using our reframing together with CameraCtrl:
-        the latent is warped a little more at every frame, so the framing follows the camera move.
-        This is an early experiment.
+        Reframing can be composed with a camera encoder such as
+        <a href="https://github.com/hehao13/CameraCtrl" target="_blank">CameraCtrl</a>, which alone gives limited
+        control over zooming. We warp the source latent over time so that the framing follows the camera trajectory.
+        These results are preliminary.
       </p>
     </div>
     <div class="viewer" id="cam-viewer">
@@ -188,7 +188,7 @@
       </div>
       <p class="result-note has-text-centered v-note"></p>
     </div>
-    <h3 class="title is-5 has-text-centered" style="margin-top: 2.5rem;">More scenes</h3>
+    <h3 class="title is-5 has-text-centered" style="margin-top: 2.5rem;">Additional scenes (ours)</h3>
     <div class="viewer" id="scene-viewer">
       <div class="tabs is-centered is-boxed v-tabs"></div>
       <div class="buttons has-addons is-centered v-rows"></div>
@@ -210,11 +210,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lee2026reframing,
-  title   = {Principled Static Reframing in Motion Transfer with Video Diffusion Models},
-  author  = {Lee, Donggyu and Hong, Seongmin and Chun, Se Young},
-  journal = {Computer Vision and Image Understanding},
-  year    = {2026}
+    <pre><code>@misc{lee2025reframing,
+  title        = {Principled Static Reframing in Motion Transfer with Video Diffusion Models},
+  author       = {Lee, Donggyu and Hong, Seongmin and Chun, Se Young},
+  howpublished = {SSRN preprint},
+  url          = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5397023},
+  year         = {2025}
 }</code></pre>
   </div>
 </section>

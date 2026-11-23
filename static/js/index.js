@@ -11,7 +11,7 @@ const mainRow = (task, method, labels) => ({
 const MAIN = {
   shift: {
     label: 'Shift',
-    note: 'The object can be moved in any direction. Moving it by about a third of the frame works best.',
+    note: 'The object can be shifted in any direction with a controllable magnitude; shifts of about one third of the frame work best.',
     rows: {
       ours: { label: 'Ours (MotionClone)', ...mainRow('shift', 'ours', ['No reframing', 'Shift right', 'Shift up']) },
       dmt: { label: 'DMT', ...mainRow('shift', 'dmt', ['No reframing', 'Shift down', 'Shift right']) },
@@ -20,7 +20,7 @@ const MAIN = {
   },
   zoom: {
     label: 'Zoom',
-    note: 'Zoom in or out by any amount.',
+    note: 'Zoom-in and zoom-out with a controllable scale.',
     rows: {
       ours: { label: 'Ours (MotionClone)', ...mainRow('zoom', 'ours', ['No reframing', 'Zoom-in 2.0×', 'Zoom-out 0.5×']) },
       dmt: { label: 'DMT', ...mainRow('zoom', 'dmt', ['No reframing', 'Zoom-in 2.0×', 'Zoom-out 0.5×']) },
@@ -29,7 +29,7 @@ const MAIN = {
   },
   warp: {
     label: 'Perspective',
-    note: 'Works for videos shot with a fixed camera. The view can be turned left, right, up or down.',
+    note: 'Perspective change toward the left, right, up, or down, for reference videos with a static camera.',
     rows: {
       ours: { label: 'Ours (MotionClone)', ...mainRow('warp', 'ours', ['No reframing', 'Right', 'Right (larger)']) },
       dmt: { label: 'DMT', ...mainRow('warp', 'dmt', ['No reframing', 'Left', 'Left (larger)']) },
