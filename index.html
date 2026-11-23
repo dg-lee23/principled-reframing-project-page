@@ -53,11 +53,6 @@
                 </a>
               </span> -->
               <span class="link-block">
-                <a href="#video" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
-                </a>
-              </span>
-              <span class="link-block">
                 <a href="https://github.com/dg-lee23/reframing" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
@@ -78,8 +73,8 @@
         <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Motion transfer methods copy the motion of a reference video, but keep its framing.
-        Our <b>reframing</b> works on top of them and controls object position, camera zoom and perspective.
+        Motion transfer copies how things move in a reference video, but it also copies the framing.
+        With <b>reframing</b>, you can change where the object is, how close the camera is, and the viewing angle.
       </h2>
     </div>
   </div>
@@ -116,37 +111,27 @@
     <h2 class="title is-3 has-text-centered">Reframing in Motion Transfer</h2>
     <div class="content has-text-justified">
       <p>
-        We apply the same reframing to three different motion transfer pipelines:
-        our own (MotionClone-based), <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a>
-        and <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-X</a>.
-        Pick a reframing and a method; <i>No reframing</i> is plain motion transfer.
+        We add reframing to three motion transfer methods: MotionClone (ours),
+        <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a> and
+        <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-X</a>.
+        Pick a type of reframing and a method below. <i>No reframing</i> is the normal motion transfer result.
       </p>
     </div>
-    <div class="tabs is-centered is-boxed" id="task-tabs">
-      <ul>
-        <li class="is-active" data-task="shift"><a>Shift</a></li>
-        <li data-task="zoom"><a>Zoom</a></li>
-        <li data-task="warp"><a>Perspective</a></li>
-      </ul>
+    <div class="viewer" id="main-viewer">
+      <div class="tabs is-centered is-boxed v-tabs"></div>
+      <div class="buttons has-addons is-centered v-rows"></div>
+      <div class="compare">
+        <figure>
+          <video class="v-ref" autoplay muted loop playsinline></video>
+          <figcaption>Reference</figcaption>
+        </figure>
+        <figure>
+          <video class="v-out" autoplay muted loop playsinline></video>
+          <figcaption><div class="buttons are-small is-centered v-variants"></div></figcaption>
+        </figure>
+      </div>
+      <p class="result-note has-text-centered v-note"></p>
     </div>
-    <div class="buttons has-addons is-centered" id="method-buttons">
-      <button class="button is-small is-rounded is-dark" data-method="ours">Ours (MotionClone)</button>
-      <button class="button is-small is-rounded" data-method="dmt">DMT</button>
-      <button class="button is-small is-rounded" data-method="ctrlx">Ctrl-X</button>
-    </div>
-    <div class="compare">
-      <figure>
-        <video id="ref-video" autoplay muted loop playsinline></video>
-        <figcaption>Reference</figcaption>
-      </figure>
-      <figure>
-        <video id="out-video" autoplay muted loop playsinline></video>
-        <figcaption>
-          <div class="buttons are-small is-centered" id="variant-buttons"></div>
-        </figcaption>
-      </figure>
-    </div>
-    <p class="result-note has-text-centered" id="task-note"></p>
   </div>
 </section>
 
@@ -154,9 +139,26 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">More Reframing</h2>
     <div class="content has-text-justified">
-      <p>Additional results, including rotation.</p>
+      <p>
+        Reframing is not limited to shift and zoom. Here are more results with rotation,
+        perspective change, and several transforms used together.
+      </p>
     </div>
-    <video class="panel-video" autoplay muted loop playsinline controls src="static/videos/section1_additional_reframing.mp4"></video>
+    <div class="viewer" id="more-viewer">
+      <div class="tabs is-centered is-boxed v-tabs"></div>
+      <div class="buttons has-addons is-centered v-rows"></div>
+      <div class="compare">
+        <figure>
+          <video class="v-ref" autoplay muted loop playsinline></video>
+          <figcaption>Reference</figcaption>
+        </figure>
+        <figure>
+          <video class="v-out" autoplay muted loop playsinline></video>
+          <figcaption><div class="buttons are-small is-centered v-variants"></div></figcaption>
+        </figure>
+      </div>
+      <p class="result-note has-text-centered v-note"></p>
+    </div>
   </div>
 </section>
 
@@ -165,28 +167,43 @@
     <h2 class="title is-3 has-text-centered">Combining with Camera Control</h2>
     <div class="content has-text-justified">
       <p>
-        Reframing can be combined with a camera encoder such as
-        <a href="https://github.com/hehao13/CameraCtrl" target="_blank">CameraCtrl</a>.
-        We warp the source latent over time so that the framing follows the camera move,
-        which adds a zoom control that the camera encoder alone does not give.
-        These results are preliminary.
+        Camera control models such as <a href="https://github.com/hehao13/CameraCtrl" target="_blank">CameraCtrl</a>
+        can move the camera, but they have a hard time with zoom. We tried using our reframing together with CameraCtrl:
+        the latent is warped a little more at every frame, so the framing follows the camera move.
+        This is an early experiment.
       </p>
     </div>
-    <video class="panel-video" autoplay muted loop playsinline controls src="static/videos/section2_cameractrl.mp4"></video>
-    <h3 class="title is-5 has-text-centered">More scenes</h3>
-    <div class="buttons is-centered" id="scene-buttons">
-      <button class="button is-small is-rounded is-dark" data-scene="tiger">Tiger &rarr; Cat</button>
-      <button class="button is-small is-rounded" data-scene="shark">Shark &rarr; Dolphin</button>
-      <button class="button is-small is-rounded" data-scene="wolf">Wolf &rarr; Lion</button>
+    <div class="viewer" id="cam-viewer">
+      <div class="tabs is-centered is-boxed v-tabs"></div>
+      <div class="buttons has-addons is-centered v-rows"></div>
+      <div class="compare">
+        <figure>
+          <video class="v-ref" autoplay muted loop playsinline></video>
+          <figcaption>Reference</figcaption>
+        </figure>
+        <figure>
+          <video class="v-out" autoplay muted loop playsinline></video>
+          <figcaption><div class="buttons are-small is-centered v-variants"></div></figcaption>
+        </figure>
+      </div>
+      <p class="result-note has-text-centered v-note"></p>
     </div>
-    <video class="panel-video" id="scene-video" autoplay muted loop playsinline src="static/videos/cameractrl/tiger.mp4"></video>
-  </div>
-</section>
-
-<section class="section" id="video">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Supplementary Video</h2>
-    <video class="panel-video" controls preload="metadata" src="static/videos/supplementary_video.mp4"></video>
+    <h3 class="title is-5 has-text-centered" style="margin-top: 2.5rem;">More scenes</h3>
+    <div class="viewer" id="scene-viewer">
+      <div class="tabs is-centered is-boxed v-tabs"></div>
+      <div class="buttons has-addons is-centered v-rows"></div>
+      <div class="compare">
+        <figure>
+          <video class="v-ref" autoplay muted loop playsinline></video>
+          <figcaption>Reference</figcaption>
+        </figure>
+        <figure>
+          <video class="v-out" autoplay muted loop playsinline></video>
+          <figcaption><div class="buttons are-small is-centered v-variants"></div></figcaption>
+        </figure>
+      </div>
+      <p class="result-note has-text-centered v-note"></p>
+    </div>
   </div>
 </section>
 

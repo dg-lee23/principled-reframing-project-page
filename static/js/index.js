@@ -1,77 +1,174 @@
-const RESULTS = {
+// Each viewer: tabs -> rows -> { ref, note, aspect, variants: [[label, src], ...] }.
+// Tabs or rows are hidden when there is only one.
+
+const R = 'static/videos/results/';
+const mainRow = (task, method, labels) => ({
+  ref: `${R}${task}_${method}_ref.mp4`,
+  aspect: method === 'dmt' ? '576 / 320' : '1',
+  variants: labels.map((l, i) => [l, `${R}${task}_${method}_${['default', 'a', 'b'][i]}.mp4`]),
+});
+
+const MAIN = {
   shift: {
-    note: 'Direction and magnitude are free; clear directions with about one third of the frame work best.',
-    variants: {
-      ours: [['No reframing', 'default'], ['Shift right', 'a'], ['Shift up', 'b']],
-      dmt: [['No reframing', 'default'], ['Shift down', 'a'], ['Shift right', 'b']],
-      ctrlx: [['No reframing', 'default'], ['Shift right', 'a'], ['Shift left', 'b']],
+    label: 'Shift',
+    note: 'The object can be moved in any direction. Moving it by about a third of the frame works best.',
+    rows: {
+      ours: { label: 'Ours (MotionClone)', ...mainRow('shift', 'ours', ['No reframing', 'Shift right', 'Shift up']) },
+      dmt: { label: 'DMT', ...mainRow('shift', 'dmt', ['No reframing', 'Shift down', 'Shift right']) },
+      ctrlx: { label: 'Ctrl-X', ...mainRow('shift', 'ctrlx', ['No reframing', 'Shift right', 'Shift left']) },
     },
   },
   zoom: {
-    note: 'Zoom-in and zoom-out with a controllable magnitude.',
-    variants: {
-      ours: [['No reframing', 'default'], ['Zoom-in 2.0×', 'a'], ['Zoom-out 0.5×', 'b']],
-      dmt: [['No reframing', 'default'], ['Zoom-in 2.0×', 'a'], ['Zoom-out 0.5×', 'b']],
-      ctrlx: [['No reframing', 'default'], ['Zoom-in 2.0×', 'a'], ['Zoom-out 0.5×', 'b']],
+    label: 'Zoom',
+    note: 'Zoom in or out by any amount.',
+    rows: {
+      ours: { label: 'Ours (MotionClone)', ...mainRow('zoom', 'ours', ['No reframing', 'Zoom-in 2.0×', 'Zoom-out 0.5×']) },
+      dmt: { label: 'DMT', ...mainRow('zoom', 'dmt', ['No reframing', 'Zoom-in 2.0×', 'Zoom-out 0.5×']) },
+      ctrlx: { label: 'Ctrl-X', ...mainRow('zoom', 'ctrlx', ['No reframing', 'Zoom-in 2.0×', 'Zoom-out 0.5×']) },
     },
   },
   warp: {
-    note: 'With a static camera, the viewpoint can be shifted in the four cardinal directions.',
-    variants: {
-      ours: [['No reframing', 'default'], ['Right', 'a'], ['Right (larger)', 'b']],
-      dmt: [['No reframing', 'default'], ['Left', 'a'], ['Left (larger)', 'b']],
-      ctrlx: [['No reframing', 'default'], ['Left', 'a'], ['Left (larger)', 'b']],
+    label: 'Perspective',
+    note: 'Works for videos shot with a fixed camera. The view can be turned left, right, up or down.',
+    rows: {
+      ours: { label: 'Ours (MotionClone)', ...mainRow('warp', 'ours', ['No reframing', 'Right', 'Right (larger)']) },
+      dmt: { label: 'DMT', ...mainRow('warp', 'dmt', ['No reframing', 'Left', 'Left (larger)']) },
+      ctrlx: { label: 'Ctrl-X', ...mainRow('warp', 'ctrlx', ['No reframing', 'Left', 'Left (larger)']) },
     },
   },
 };
-const ASPECT = { dmt: '576 / 320' };
 
-document.addEventListener('DOMContentLoaded', () => {
-  const ref = document.getElementById('ref-video');
-  const out = document.getElementById('out-video');
-  const variantBox = document.getElementById('variant-buttons');
-  const note = document.getElementById('task-note');
-  let task = 'shift', method = 'ours', variant = 'a';
+const M = 'static/videos/more/';
+const moreRow = (cat, scene, label, prompt, name) => ({
+  label,
+  note: `Prompt: "${prompt}"`,
+  ref: `${M}${cat}_${scene}_ref.mp4`,
+  variants: [
+    ['No reframing', `${M}${cat}_${scene}_default.mp4`],
+    [name, `${M}${cat}_${scene}_a.mp4`],
+    [`${name} (larger)`, `${M}${cat}_${scene}_b.mp4`],
+  ],
+});
 
-  const src = v => `static/videos/results/${task}_${method}_${v}.mp4`;
+const MORE = {
+  rotate: {
+    label: 'Rotation',
+    rows: {
+      boat: moreRow('rotate', 'boat', 'Boat → Raft', 'A birds-eye view of a wooden log raft sailing on the ocean', 'Rotate'),
+      shark: moreRow('rotate', 'shark', 'Shark → Dolphin', 'A dolphin swimming underwater in the ocean', 'Rotate'),
+      tiger: moreRow('rotate', 'tiger_zoo', 'Tiger → Cat', 'A cat walking along a grass hill', 'Rotate'),
+    },
+  },
+  perspective: {
+    label: 'Perspective',
+    rows: {
+      car: moreRow('perspective', 'green_car', 'Car → Porsche', 'A black porsche driving on a town road', 'Perspective'),
+      train: moreRow('perspective', 'train', 'Train → Snowy train', 'A train passing a station covered in snow, bright morning', 'Perspective'),
+      walk: moreRow('perspective', 'walk2', 'Walk → Iron Man', 'Iron Man walking in a spaceship', 'Perspective'),
+    },
+  },
+  combined: {
+    label: 'Combined',
+    rows: {
+      lucia: moreRow('combined', 'lucia', 'Walk → Darth Vader', 'Darth Vader walking uphill in the forest', 'Combined'),
+      tiger: moreRow('combined', 'tiger_zoo', 'Tiger → Cat', 'A cat walking uphill along a grass hill', 'Combined'),
+      fox: moreRow('combined', 'fox_run', 'Fox → Arctic fox', 'Arctic fox running in the snow', 'Combined'),
+    },
+  },
+};
 
-  function restart() {
-    [ref, out].forEach(v => { v.currentTime = 0; v.play().catch(() => {}); });
+const C = 'static/videos/cameractrl/';
+const camTab = (move, label) => ({
+  label,
+  rows: {
+    lion: {
+      note: 'Prompt: "Lion moves its head in the wild"',
+      ref: `${C}lion_ref.mp4`,
+      variants: [
+        ['CameraCtrl only', `${C}lion_${move}_cameractrl.mp4`],
+        ['Time-varying warp', `${C}lion_${move}_timevarying.mp4`],
+        ['Ours (latent warp)', `${C}lion_${move}_ours.mp4`],
+      ],
+    },
+  },
+});
+
+const CAM = {
+  zoomin: camTab('zoomin', 'Zoom-in'),
+  zoomout: camTab('zoomout', 'Zoom-out'),
+  shift: camTab('shift', 'Pan'),
+};
+
+const sceneRow = (scene, label, prompt) => ({
+  label,
+  note: `Prompt: "${prompt}"`,
+  ref: `${C}${scene}_ref.mp4`,
+  variants: [['Zoom-in', `${C}${scene}_zoomin.mp4`], ['Zoom-out', `${C}${scene}_zoomout.mp4`]],
+});
+
+const SCENES = {
+  all: {
+    rows: {
+      tiger: sceneRow('tiger', 'Tiger → Cat', 'Cat, walking, in the wild'),
+      shark: sceneRow('shark', 'Shark → Dolphin', 'A dolphin swimming in the ocean'),
+      wolf: sceneRow('wolf', 'Wolf → Lion', 'A lion turning its head in the forest'),
+    },
+  },
+};
+
+function viewer(id, data, defaultVariant) {
+  const root = document.getElementById(id);
+  const tabBox = root.querySelector('.v-tabs');
+  const rowBox = root.querySelector('.v-rows');
+  const varBox = root.querySelector('.v-variants');
+  const ref = root.querySelector('.v-ref');
+  const out = root.querySelector('.v-out');
+  const note = root.querySelector('.v-note');
+  let tab = Object.keys(data)[0];
+  let row = Object.keys(data[tab].rows)[0];
+  let variant = defaultVariant;
+
+  function buttons(box, items, active, onPick, cls) {
+    box.innerHTML = '';
+    items.forEach(([key, label]) => {
+      const b = document.createElement('button');
+      b.className = `button is-rounded ${cls}` + (key === active ? ' is-dark' : '');
+      b.textContent = label;
+      b.onclick = () => onPick(key);
+      box.appendChild(b);
+    });
   }
 
   function render() {
-    const ar = ASPECT[method] || '1';
-    [ref, out].forEach(v => v.style.setProperty('--ar', ar));
-    ref.src = src('ref');
-    out.src = src(variant);
-    note.textContent = RESULTS[task].note;
-    variantBox.innerHTML = '';
-    RESULTS[task].variants[method].forEach(([label, key]) => {
-      const b = document.createElement('button');
-      b.className = 'button is-rounded' + (key === variant ? ' is-dark' : '');
-      b.textContent = label;
-      b.onclick = () => { variant = key; render(); };
-      variantBox.appendChild(b);
+    const tabs = Object.entries(data);
+    tabBox.style.display = tabs.length > 1 ? '' : 'none';
+    tabBox.innerHTML = '<ul>' + tabs.map(([k, t]) =>
+      `<li class="${k === tab ? 'is-active' : ''}" data-k="${k}"><a>${t.label}</a></li>`).join('') + '</ul>';
+    tabBox.querySelectorAll('li').forEach(li => li.onclick = () => {
+      tab = li.dataset.k;
+      if (!(row in data[tab].rows)) row = Object.keys(data[tab].rows)[0];
+      variant = defaultVariant; render();
     });
-    restart();
-  }
 
-  document.querySelectorAll('#task-tabs li').forEach(li => li.addEventListener('click', () => {
-    document.querySelectorAll('#task-tabs li').forEach(x => x.classList.toggle('is-active', x === li));
-    task = li.dataset.task; variant = 'a'; render();
-  }));
-  document.querySelectorAll('#method-buttons .button').forEach(btn => btn.addEventListener('click', () => {
-    document.querySelectorAll('#method-buttons .button').forEach(x => x.classList.toggle('is-dark', x === btn));
-    method = btn.dataset.method; variant = 'a'; render();
-  }));
+    const rows = Object.entries(data[tab].rows);
+    rowBox.style.display = rows.length > 1 ? '' : 'none';
+    buttons(rowBox, rows.map(([k, r]) => [k, r.label]), row,
+      k => { row = k; variant = defaultVariant; render(); }, 'is-small');
+
+    const r = data[tab].rows[row];
+    buttons(varBox, r.variants.map(([l], i) => [i, l]), variant, i => { variant = i; render(); }, '');
+    [ref, out].forEach(v => v.style.setProperty('--ar', r.aspect || '1'));
+    ref.src = r.ref;
+    out.src = r.variants[variant][1];
+    note.textContent = r.note || data[tab].note || '';
+    [ref, out].forEach(v => { v.currentTime = 0; v.play().catch(() => {}); });
+  }
   render();
-});
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  const video = document.getElementById('scene-video');
-  document.querySelectorAll('#scene-buttons .button').forEach(btn => btn.addEventListener('click', () => {
-    document.querySelectorAll('#scene-buttons .button').forEach(x => x.classList.toggle('is-dark', x === btn));
-    video.src = `static/videos/cameractrl/${btn.dataset.scene}.mp4`;
-    video.play().catch(() => {});
-  }));
+  viewer('main-viewer', MAIN, 1);
+  viewer('more-viewer', MORE, 1);
+  viewer('cam-viewer', CAM, 2);
+  viewer('scene-viewer', SCENES, 0);
 });

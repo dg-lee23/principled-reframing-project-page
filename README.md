@@ -1,6 +1,6 @@
 # Principled Static Reframing in Motion Transfer — project page
 
-https://dg-lee23.github.io/reframing-page/
+https://dg-lee23.github.io/principled-reframing-project-page/
 
 Code: https://github.com/dg-lee23/reframing
 
