@@ -1,125 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="Principled Reframing"/>
-  <meta property="og:description" content=""/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Motion transfer, Video reframing, Video diffusion model">
+  <meta name="description" content="Principled Static Reframing in Motion Transfer with Video Diffusion Models: control object position, camera zoom and perspective in motion transfer without training.">
+  <meta name="keywords" content="reframing, motion transfer, video diffusion, camera control">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Principled Static Reframing in Motion Transfer</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
 
-  <title>Principled Reframing</title>
-  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
 
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Principled Static Reframing in Motion Transfer with Video Diffusion Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://dg-lee23.github.io/blog/" target="_blank">Donggyu Lee</a><sup>1,*</sup>,</span>
+            <span class="author-block"><a href="https://smhongok.github.io/" target="_blank">Seongmin Hong</a><sup>1,*</sup>,</span>
+            <span class="author-block"><a href="https://icl.snu.ac.kr/pi" target="_blank">Se Young Chun</a><sup>1,2,&dagger;</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Department of ECE,</span>
+            <span class="author-block"><sup>2</sup>INMC, Seoul National University</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution, <sup>&dagger;</sup>Corresponding author</span>
+          </div>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Principled Reframing in Motion Transfer with Video Diffusion Models</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://dg-lee23.github.io/blog/" target="_blank">Donggyu Lee</a><sup>1, *</sup>,</span>
-                <span class="author-block">
-                  <a href="https://smhongok.github.io/" target="_blank">Seongmin Hong</a><sup>1, *</sup>,</span>
-                  <span class="author-block">
-                    <a href="https://icl.snu.ac.kr/pi" target="_blank">Se Young Chun</a><sup>1, 2, †</sup>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">
-                        <sup>1</sup>Department of ECE, 
-                        <sup>2</sup>INMC, Seoul National University<br>
-                        <!--Conferance name and year-->
-                      </span>
-                    <span class="eql-cntrb">
-                      <small>
-                        <br><sup>*</sup>Equal contribution, <sup>†</sup> Corresponding author
-                      </small>
-                    </span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5397023" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/dg-lee23/principled-reframing" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span> -->
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5397023" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/dg-lee23/reframing" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
                 </a>
               </span>
             </div>
@@ -130,431 +71,152 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/teaser.mp4"
-        type="video/mp4">
+      <video id="teaser" autoplay muted loop playsinline controls height="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span style="font-weight: bold; color: #363636; font-size: 1.25em;">
-          Our approach allows users to generate videos with desired framings.
-        </span><br><br>
-        Existing motion transfer methods can replicate the given motion, but are constrained by fixed framing. 
-        Therefore, we propose a principled <b>reframing</b> approach that can be applied on top of them.
-        Our method enables control over object position, camera zoom, and perspective.
+        Motion transfer methods copy the motion of a reference video, but keep its framing.
+        Our <b>reframing</b> works on top of them and controls object position, camera zoom and perspective.
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-            <p>
-              Video motion transfer methods have demonstrated remarkable performance in generating new videos with the given text prompt while replicating the object's motion in a reference video. 
-              However, they inherently retain the original framing (i.e., object position, zooming, perspective), limiting their applicability. 
-              To address this challenge, we investigate the feasibility of <b>reframing</b> in motion transfer using video diffusion models. 
-              Specifically, we analyze the categories of existing motion transfer methods, assess their reframing capabilities, and propose a general approach that utilizes parametric global warping to provide effective framing control in these methods. 
-              Our analyses showed that applying transformations to feature vectors, which contain rich semantic information, can support such control over framing. 
-              With a seamless integration of reframing into motion transfer methods, high-quality, reframed videos that can even handle unseen areas in the original reference frame can be produced. 
-              Experiments show that our approach enables reframing across diverse motion transfer methods while preserving motion consistency and generation quality with minimal computational overhead.
-            </p>
+          <p>
+            Video motion transfer methods have demonstrated remarkable performance in generating new videos with the given
+            text prompt while replicating the object's motion in a reference video. However, they inherently retain the
+            original framing (i.e., object position, zooming, perspective), limiting their applicability. To address this
+            challenge, we investigate the feasibility of <i>reframing</i> in motion transfer using video diffusion models.
+            Specifically, we analyze the categories of existing motion transfer methods, assess their reframing
+            capabilities, and propose a general approach that utilizes parametric global warping to provide effective
+            framing control in these methods. Our analyses showed that applying transformations to feature vectors, which
+            contain rich semantic information, can support such control over framing. With a seamless integration of
+            reframing into motion transfer methods, high-quality, reframed videos that can even handle unseen areas in the
+            original reference frame can be produced. Experiments show that our approach enables reframing across diverse
+            motion transfer methods while preserving motion consistency and generation quality with minimal computational
+            overhead.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
 
-
-<!-- Results -->
 <section class="section">
-  <div class="container">
-
-    <!-- Overall title + description -->
-    <h1 class="title is-2 has-text-centered">Results with Reframing</h1>
-    <p class="subtitle is-5 has-text-grey has-text-centered" style="max-width: 800px; margin: 0 auto 3rem;">
-      We present results of using reframing for object shifting, camera zoom adjustments, and perspective shifts.
-      Results are obtained by using our reframing on top of three different motion transfer pipelines, our own (first row)
-      <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a> (second row), and
-      <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-x</a> (third row). 
-      <sup>*</sup> indicates a different direction, and <sup>†</sup> indicates a more significant change.
-    </p>
-
-    <!-- results: shift -->
-    <section class="section">
-      <div class="container">
-        <h2 class="title is-3">Results - shifting</h2>
-        <p class="subtitle is-5 has-text-grey">
-          Results for shifting. The direction and magnitude of shifting can be freely controlled. 
-          Generally, better results are achieved when shifting in clear cardinal directions (up, down, left, or right) with magnitude of roughly one-third of the resolution.
-        </p>
-
-        <!-- Column captions -->
-        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Reference</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Default</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Shift</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Shift<sup>*</sup></p>
-          </div>
-        </div>
-
-        <div class="columns is-multiline is-centered is-mobile">
-          
-          <!-- Row 1 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Ours/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Ours/default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Ours/shift right.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Ours/shift up alternative.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Opt. based/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Opt. based/default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Opt. based/shift down.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Opt. based/shift right.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <!-- Row 3 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Inj. based/reference.gif" alt="demo1">
-            </figure>
-          </div>
-          
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Inj. based/default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Inj. based/right.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/shift/Inj. based/left.gif" alt="demo1">
-            </figure>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!--  -->
-
-    <!-- results: zoom -->
-    <section class="section">
-      <div class="container">
-        <h2 class="title is-3">Results - zoom</h2>
-        <p class="subtitle is-5 has-text-grey">
-          Results for camera zoom adjustments. 
-          Both zooming in and out are supported, with controllable magnitudes (e.g., 2.0X for zoom-in, 0.5X for zoom-out).
-        </p>
-
-        <!-- Column captions -->
-        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Reference</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Default</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Zoom-in</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Zoom-out</p>
-          </div>
-        </div>
-        
-
-        <div class="columns is-multiline is-centered is-mobile">
-          
-          <!-- Row 1 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Ours/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Ours/1.0.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Ours/2.0.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Ours/0.5.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Opt. based/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Opt. based/default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Opt. based/new_2.0X.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Opt. based/new_0.5X.gif" alt="demo1">
-            </figure>
-          </div>
-
-
-          <!-- Row 3 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Inj. based/dance_2.gif" alt="demo1">
-            </figure>
-          </div>
-          
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Inj. based/1.0X_maybe.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Inj. based/2.0X_maybe.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/zoom/Inj. based/0.5X_final.gif" alt="demo1">
-            </figure>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!--  -->
-
-    <!-- results: warp -->
-    <section class="section">
-      <div class="container">
-        <h2 class="title is-3">Results - perspective shifts (warping) </h2>
-        <p class="subtitle is-5 has-text-grey">
-          Results for perspective shifts. 
-          As long as the camera remains static, its perspective can be shifted in the four cardinal directions, and the magnitude is controllable up to discrete steps.
-        </p>
-
-        <!-- Column captions -->
-        <div class="columns is-mobile has-text-centered is-vcentered" style="margin-bottom: 1rem;">
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Reference</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Default</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Perspective</p>
-          </div>
-          <div class="column is-one-quarter">
-            <p class="has-text-weight-semibold">Perspective<sup>†</sup></p>
-          </div>
-        </div>
-        
-
-        <div class="columns is-multiline is-centered is-mobile">
-          
-          <!-- Row 1 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Ours/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Ours/default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Ours/right_1.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Ours/right_2.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Opt. based/reference.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Opt. based/waterfall_default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Opt. based/left.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Opt. based/left_2.gif" alt="demo1">
-            </figure>
-          </div>
-
-
-          <!-- Row 3 -->
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Inj. based/cat_stairs.gif" alt="demo1">
-            </figure>
-          </div>
-          
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Inj. based/cat_stairs_default.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Inj. based/cat_stairs_L.gif" alt="demo1">
-            </figure>
-          </div>
-
-          <div class="column is-one-quarter">
-            <figure class="image is-4by3">
-              <img src="static/videos/warp/Inj. based/cat_stairs_LL.gif" alt="demo1">
-            </figure>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!--  -->
-
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Reframing in Motion Transfer</h2>
+    <div class="content has-text-justified">
+      <p>
+        We apply the same reframing to three different motion transfer pipelines:
+        our own (MotionClone-based), <a href="https://diffusion-motion-transfer.github.io/" target="_blank">DMT</a>
+        and <a href="https://genforce.github.io/ctrl-x/" target="_blank">Ctrl-X</a>.
+        Pick a reframing and a method; <i>No reframing</i> is plain motion transfer.
+      </p>
+    </div>
+    <div class="tabs is-centered is-boxed" id="task-tabs">
+      <ul>
+        <li class="is-active" data-task="shift"><a>Shift</a></li>
+        <li data-task="zoom"><a>Zoom</a></li>
+        <li data-task="warp"><a>Perspective</a></li>
+      </ul>
+    </div>
+    <div class="buttons has-addons is-centered" id="method-buttons">
+      <button class="button is-small is-rounded is-dark" data-method="ours">Ours (MotionClone)</button>
+      <button class="button is-small is-rounded" data-method="dmt">DMT</button>
+      <button class="button is-small is-rounded" data-method="ctrlx">Ctrl-X</button>
+    </div>
+    <div class="compare">
+      <figure>
+        <video id="ref-video" autoplay muted loop playsinline></video>
+        <figcaption>Reference</figcaption>
+      </figure>
+      <figure>
+        <video id="out-video" autoplay muted loop playsinline></video>
+        <figcaption>
+          <div class="buttons are-small is-centered" id="variant-buttons"></div>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="result-note has-text-centered" id="task-note"></p>
   </div>
 </section>
 
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">More Reframing</h2>
+    <div class="content has-text-justified">
+      <p>Additional results, including rotation.</p>
     </div>
+    <video class="panel-video" autoplay muted loop playsinline controls src="static/videos/section1_additional_reframing.mp4"></video>
+  </div>
 </section>
-<!--End BibTex citation -->
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Combining with Camera Control</h2>
+    <div class="content has-text-justified">
+      <p>
+        Reframing can be combined with a camera encoder such as
+        <a href="https://github.com/hehao13/CameraCtrl" target="_blank">CameraCtrl</a>.
+        We warp the source latent over time so that the framing follows the camera move,
+        which adds a zoom control that the camera encoder alone does not give.
+        These results are preliminary.
+      </p>
+    </div>
+    <video class="panel-video" autoplay muted loop playsinline controls src="static/videos/section2_cameractrl.mp4"></video>
+    <h3 class="title is-5 has-text-centered">More scenes</h3>
+    <div class="buttons is-centered" id="scene-buttons">
+      <button class="button is-small is-rounded is-dark" data-scene="tiger">Tiger &rarr; Cat</button>
+      <button class="button is-small is-rounded" data-scene="shark">Shark &rarr; Dolphin</button>
+      <button class="button is-small is-rounded" data-scene="wolf">Wolf &rarr; Lion</button>
+    </div>
+    <video class="panel-video" id="scene-video" autoplay muted loop playsinline src="static/videos/cameractrl/tiger.mp4"></video>
+  </div>
+</section>
 
-  <footer class="footer">
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Supplementary Video</h2>
+    <video class="panel-video" controls preload="metadata" src="static/videos/supplementary_video.mp4"></video>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lee2026reframing,
+  title   = {Principled Static Reframing in Motion Transfer with Video Diffusion Models},
+  author  = {Lee, Donggyu and Hong, Seongmin and Chun, Se Young},
+  journal = {Computer Vision and Image Understanding},
+  year    = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
-
+        <div class="content has-text-centered">
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>. 
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
